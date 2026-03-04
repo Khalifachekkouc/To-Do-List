@@ -78,7 +78,7 @@ function showData(data = dataTasks) {
     });
     container.innerHTML = cards;
 
-    // Delete All Button Logic
+
     let delBtn = document.getElementById("deleteAllBtnContainer");
     if (dataTasks.length > 0) {
         let displayCount = (search.value != "") ? data.length : dataTasks.length;
@@ -104,7 +104,6 @@ window.deleteData = (id) => {
 
 window.deleteAll = () => {
     if (search.value != "") {
-        // Delete only the filtered items if search is active
         let filteredIds = dataTasks.filter(item => 
             item.title.toLowerCase().includes(search.value.toLowerCase()) || 
             item.category.toLowerCase().includes(search.value.toLowerCase())
@@ -113,7 +112,6 @@ window.deleteAll = () => {
         dataTasks = dataTasks.filter(item => !filteredIds.includes(item.id));
         search.value = "";
     } else {
-        // Delete everything
         dataTasks = [];
     }
     
